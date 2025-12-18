@@ -37,7 +37,7 @@ function checkPassword() {
         return; // No mostrar mensaje si está vacío
     }
     
-    if (inputPassword === correctPassword) {
+    if (correctPassword.includes(inputPassword)) {
         // Contraseña correcta
         showMessage("¡Felicidades! ¡Has descifrado el misterio!", 'success');
         lock.classList.add('unlocked');
@@ -52,8 +52,8 @@ function checkPassword() {
             setTimeout(() => {
                 window.location.href = "pagina1.html";
                 alert("¡Bienvenida!");
-            }, 2000);
-        }, 2000);
+            }, 1500);
+        }, 1500);
         
     } else {
         // Contraseña incorrecta - solo mostrar mensaje, no limpiar
@@ -149,3 +149,6 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+const loginBtn = document.getElementById('loginBtn');
+loginBtn.addEventListener('click', checkPassword);
+
